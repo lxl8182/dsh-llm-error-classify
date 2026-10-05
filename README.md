@@ -74,14 +74,28 @@ PROVIDER_ERROR -> {"code":"PROVIDER_ERROR","message":"当前分组下没有可�
 
 ## 安装
 
+### 从 GitHub 安装
+
+```powershell
+$dst = "$env:USERPROFILE\.dsh\plugins\dsh-llm-error-classify"
+git clone https://github.com/lxl8182/dsh-llm-error-classify.git $dst
+node "$dst\install.mjs"
+```
+
+没有 `git` 时用 `gh`：`gh repo clone lxl8182/dsh-llm-error-classify $dst`。
+也可以直接从仓库页面下载 ZIP 解压到同一个位置（路径不含仓库名以外的要求）。
+
+插件没有运行时依赖，**不需要 `npm install`**——`node install.mjs` 就够了。
+
+### 从本地目录安装
+
+已经在本地有这份代码时，在插件目录里直接跑：
+
 ```powershell
 node install.mjs
 ```
 
-脚本按 dsh 本地插件的通用方式注册：写 profile 的 `package.json`，加一条
-`link:` 依赖并追加到 `dsh.profile.bundles`。
-
-之后需要让 profile 建立链接并重启：
+### 让 profile 生效（两种方式都要）
 
 ```powershell
 cd $env:USERPROFILE\.dsh\profiles\web
@@ -89,6 +103,20 @@ pnpm install
 ```
 
 然后重启 dsh web。
+
+`install.mjs` 注册的是**插件所在目录**的 `link:` 依赖，追加到
+`dsh.profile.bundles`，所以克隆到哪个目录都能用。可选参数与变量：
+
+- `node install.mjs <profileDir>` —— 指定非默认 profile；
+- `DSH_HOME` —— 覆盖 `~/.dsh`。
+
+### 升级
+
+```powershell
+git -C "$env:USERPROFILE\.dsh\plugins\dsh-llm-error-classify" pull
+```
+
+再重启 dsh web。`link:` 指向的就是这个目录，无需重跑 `install.mjs`。
 
 ## 为什么不影响更新
 
