@@ -89,6 +89,8 @@ PROVIDER_ERROR -> {"code":"PROVIDER_ERROR","message":"当前分组下没有可�
 
 ## 验证
 
+以下命令在**仓库副本**里运行（`dsh plugin add` 装进 profile 的副本只包含运行时文件 `index.js`、`cordis.patch.yml`、`README.md`）。
+
 逻辑层：
 
 ```sh
