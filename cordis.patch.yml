@@ -1,0 +1,6 @@
+# Mount the classifier as an ordinary Host plugin row. No config: every
+# terminal failure the adapter tagged `AUTH` is relabelled to a code the UI
+# renders verbatim, so the provider's own text reaches the user.
+- insert:
+    - id: llm-error-classify
+      name: dsh-llm-error-classify

@@ -1,0 +1,25 @@
+{
+  "name": "dsh-llm-error-classify",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Relabel provider failures the pi-ai adapter over-classifies as AUTH, so the provider's own error text is displayed instead of a canned 'API key is invalid'.",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
