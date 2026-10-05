@@ -3,7 +3,8 @@
   "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "Relabel provider failures the pi-ai adapter over-classifies as AUTH, so the provider's own error text is displayed instead of a canned 'API key is invalid'.",
+  "license": "MIT",
+  "description": "DSH 错误分类修正插件：把 pi-ai 适配器一律判成 AUTH 的提供方失败改写为 PROVIDER_ERROR，让网关原文原样显示，而不是被 UI 替换成「API 密钥无效」。",
   "main": "./index.js",
   "exports": {
     ".": "./index.js",
